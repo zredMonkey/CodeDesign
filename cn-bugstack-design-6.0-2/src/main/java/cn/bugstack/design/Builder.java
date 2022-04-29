@@ -8,6 +8,9 @@ import cn.bugstack.design.floor.ShengXiangFloor;
 import cn.bugstack.design.tile.DongPengTile;
 import cn.bugstack.design.tile.MarcoPoloTile;
 
+/**
+ * 建造者类的具体的各种组装
+ */
 public class Builder {
 
     public IMenu levelOne(Double area) {

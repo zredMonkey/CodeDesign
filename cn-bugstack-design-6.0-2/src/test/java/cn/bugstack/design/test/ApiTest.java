@@ -3,6 +3,10 @@ package cn.bugstack.design.test;
 import cn.bugstack.design.Builder;
 import org.junit.Test;
 
+/**
+ * 建造者适用场景：当一些基本材料不变，而其组合经常变化
+ */
+
 public class ApiTest {
 
     @Test
