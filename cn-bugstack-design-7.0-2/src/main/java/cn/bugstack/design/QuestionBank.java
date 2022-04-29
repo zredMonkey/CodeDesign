@@ -9,14 +9,27 @@ import java.util.Map;
 
 /**
  * 题库
+ *
+ * 将题目进行组装，最终输出试卷
+ *
+ * 注意实现 implements Cloneable
+ *
+ * cloneable其实就是一个标记接口，只有实现这个接口后，然后在类中重写Object中的clone方法，然后通过类调用clone方法才能克隆成功，
+ * 如果不实现这个接口，则会抛出CloneNotSupportedException(克隆不被支持)异常
  */
 public class QuestionBank implements Cloneable {
 
     private String candidate; // 考生
     private String number;    // 考号
 
+    // 单选题
     private ArrayList<ChoiceQuestion> choiceQuestionList = new ArrayList<ChoiceQuestion>();
+    // 解答题
     private ArrayList<AnswerQuestion> answerQuestionList = new ArrayList<AnswerQuestion>();
+
+
+
+
 
     public QuestionBank append(ChoiceQuestion choiceQuestion) {
         choiceQuestionList.add(choiceQuestion);
@@ -28,9 +41,15 @@ public class QuestionBank implements Cloneable {
         return this;
     }
 
+    /**
+     * 核算操作是：复制对象
+     * @return
+     * @throws CloneNotSupportedException
+     */
     @Override
     public Object clone() throws CloneNotSupportedException {
         QuestionBank questionBank = (QuestionBank) super.clone();
+        // 两个集合也复制，保证不影响原对象
         questionBank.choiceQuestionList = (ArrayList<ChoiceQuestion>) choiceQuestionList.clone();
         questionBank.answerQuestionList = (ArrayList<AnswerQuestion>) answerQuestionList.clone();
 
