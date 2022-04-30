@@ -1,5 +1,8 @@
 package cn.bugstack.design;
 
+/**
+ * 单例模式- 使用类的静态内部类实现-推荐使用
+ */
 public class Singleton_04 {
 
     private static class SingletonHolder {

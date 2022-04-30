@@ -2,6 +2,10 @@ package cn.bugstack.design;
 
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * 单例模式-CAS 线程安全
+ */
+
 public class Singleton_06 {
 
     private static final AtomicReference<Singleton_06> INSTANCE = new AtomicReference<Singleton_06>();

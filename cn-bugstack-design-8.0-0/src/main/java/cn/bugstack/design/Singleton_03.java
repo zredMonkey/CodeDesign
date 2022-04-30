@@ -1,5 +1,9 @@
 package cn.bugstack.design;
 
+/**
+ * 单例模式-饿汉模式-(线程安全)
+ */
+
 public class Singleton_03 {
 
     private static Singleton_03 instance = new Singleton_03();

@@ -1,5 +1,8 @@
 package cn.bugstack.design;
 
+/**
+ * 单例模式-双重锁校验-线程安全
+ */
 public class Singleton_05 {
 
     private static Singleton_05 instance;
