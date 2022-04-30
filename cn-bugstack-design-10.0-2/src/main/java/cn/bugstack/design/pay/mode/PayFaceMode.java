@@ -3,7 +3,11 @@ package cn.bugstack.design.pay.mode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class PayFaceMode implements IPayMode{
+/**
+ * 人脸支付
+ */
+
+public class PayFaceMode implements IPayMode {
 
     protected Logger logger = LoggerFactory.getLogger(PayCypher.class);
 

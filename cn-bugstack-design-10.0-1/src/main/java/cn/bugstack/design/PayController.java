@@ -9,6 +9,15 @@ public class PayController {
 
     private Logger logger = LoggerFactory.getLogger(PayController.class);
 
+    /**
+     *
+     * @param uId       用户Id
+     * @param tradeId   交易id
+     * @param amount    金额
+     * @param channelType 渠道
+     * @param modeType   模式
+     * @return
+     */
     public boolean doPay(String uId, String tradeId, BigDecimal amount, int channelType, int modeType) {
         // 微信支付
         if (1 == channelType) {

@@ -4,12 +4,23 @@ import cn.bugstack.design.pay.mode.IPayMode;
 
 import java.math.BigDecimal;
 
+/**
+ * 微信支付
+ */
 public class WxPay extends Pay {
 
     public WxPay(IPayMode payMode) {
         super(payMode);
     }
 
+    /**
+     * 划账
+     *
+     * @param uId
+     * @param tradeId
+     * @param amount
+     * @return
+     */
     public String transfer(String uId, String tradeId, BigDecimal amount) {
         logger.info("模拟微信渠道支付划账开始。uId：{} tradeId：{} amount：{}", uId, tradeId, amount);
         boolean security = payMode.security(uId);
