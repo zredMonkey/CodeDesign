@@ -4,10 +4,13 @@ import com.alibaba.fastjson.JSON;
 
 import java.util.Date;
 
+/**
+ * 内部订单MQ
+ */
 public class OrderMq {
 
     private String uid;           // 用户ID
-    private String sku;           // 商品
+    private String sku;           // 商品编号
     private String orderId;       // 订单ID
     private Date createOrderTime; // 下单时间
 

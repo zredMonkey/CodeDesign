@@ -18,6 +18,16 @@ import java.util.HashMap;
 
 public class ApiTest {
 
+    /**
+     * MQ适配验证
+     *
+     * 传入两个不同的MQ消息，并设置字段的映射关系
+     *
+     * @throws NoSuchMethodException
+     * @throws IllegalAccessException
+     * @throws InvocationTargetException
+     * @throws ParseException
+     */
     @Test
     public void test_MQAdapter() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, ParseException {
 
@@ -31,6 +41,7 @@ public class ApiTest {
         create_account.setAccountDate(parse);
         create_account.setDesc("在校开户");
 
+        // 字段的映射关系，在实际场景中，可以将映射配置关系交给配置文件或数据库后台，从而避免编码
         HashMap<String, String> link01 = new HashMap<String, String>();
         link01.put("userId", "number");
         link01.put("bizId", "number");
@@ -57,11 +68,16 @@ public class ApiTest {
         System.out.println("mq.orderMq(适配后)" + JSON.toJSONString(rebateInfo02));
     }
 
+    /**
+     * 接口适配验证
+     */
     @Test
     public void test_itfAdapter() {
+        // 第三方订单
         OrderAdapterService popOrderAdapterService = new POPOrderAdapterServiceImpl();
         System.out.println("判断首单，接口适配(POP)：" + popOrderAdapterService.isFirst("100001"));
 
+        // 内部订单
         OrderAdapterService insideOrderService = new InsideOrderServiceImpl();
         System.out.println("判断首单，接口适配(自营)：" + insideOrderService.isFirst("100001"));
     }

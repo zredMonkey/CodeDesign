@@ -6,16 +6,16 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * 订单妥投消息
+ * 订单妥投消息 (第三方订单MQ)
  */
 public class POPOrderDelivered {
 
     private String uId;     // 用户ID
     private String orderId; // 订单号
     private Date orderTime; // 下单时间
-    private Date sku;       // 商品
+    private Date sku;       // 商品编号
     private Date skuName;   // 商品名称
-    private BigDecimal decimal; // 金额
+    private BigDecimal decimal; // 商品金额
 
     public String getuId() {
         return uId;
