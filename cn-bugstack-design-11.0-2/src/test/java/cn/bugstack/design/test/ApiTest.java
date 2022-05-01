@@ -21,8 +21,12 @@ public class ApiTest {
 
     private Logger logger = LoggerFactory.getLogger(ApiTest.class);
 
+    // 规则树
     private TreeRich treeRich;
 
+    /**
+     * 初始化决策树数据
+     */
     @Before
     public void init() {
 
@@ -55,6 +59,8 @@ public class ApiTest {
 
         treeNode_01.setTreeNodeLinkList(treeNodeLinkList_1);
 
+        // ====================================================================================================================
+
         // 节点：11
         TreeNode treeNode_11 = new TreeNode();
         treeNode_11.setTreeId(10001L);
@@ -84,6 +90,8 @@ public class ApiTest {
 
         treeNode_11.setTreeNodeLinkList(treeNodeLinkList_11);
 
+        // =========================================================================================================================
+
         // 节点：12
         TreeNode treeNode_12 = new TreeNode();
         treeNode_12.setTreeId(10001L);
@@ -112,6 +120,8 @@ public class ApiTest {
         treeNodeLinkList_12.add(treeNodeLink_122);
 
         treeNode_12.setTreeNodeLinkList(treeNodeLinkList_12);
+
+        // ===============================================================================================================
 
         // 节点：111
         TreeNode treeNode_111 = new TreeNode();
@@ -164,6 +174,7 @@ public class ApiTest {
     public void test_tree() {
         logger.info("决策树组合结构信息：\r\n" + JSON.toJSONString(treeRich));
 
+        // 决策树引擎
         IEngine treeEngineHandle = new TreeEngineHandle();
 
         /**

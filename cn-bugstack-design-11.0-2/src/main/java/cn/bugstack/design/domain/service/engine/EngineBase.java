@@ -11,9 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Map;
 
 /**
- * 微信公众号：bugstack虫洞栈 | 专注原创技术专题案例
- * 论坛：http://bugstack.cn
- * Create by 小傅哥 on @2020
+ * 基础决策引擎功能
  */
 public abstract class EngineBase extends EngineConfig implements IEngine {
 
@@ -22,14 +20,24 @@ public abstract class EngineBase extends EngineConfig implements IEngine {
     @Override
     public abstract EngineResult process(Long treeId, String userId, TreeRich treeRich, Map<String, String> decisionMatter);
 
+    /**
+     *
+     * @param treeRich         决策树
+     * @param treeId           树id
+     * @param userId           用户id
+     * @param decisionMatter   事件map
+     * @return
+     */
     protected TreeNode engineDecisionMaker(TreeRich treeRich, Long treeId, String userId, Map<String, String> decisionMatter) {
         TreeRoot treeRoot = treeRich.getTreeRoot();
+        //树节点ID -> 子节点
         Map<Long, TreeNode> treeNodeMap = treeRich.getTreeNodeMap();
         // 规则树根ID
         Long rootNodeId = treeRoot.getTreeRootNodeId();
         TreeNode treeNodeInfo = treeNodeMap.get(rootNodeId);
         //节点类型[NodeType]；1子叶、2果实
         while (treeNodeInfo.getNodeType().equals(1)) {
+            //规则Key
             String ruleKey = treeNodeInfo.getRuleKey();
             LogicFilter logicFilter = logicFilterMap.get(ruleKey);
             String matterValue = logicFilter.matterValue(treeId, userId, decisionMatter);

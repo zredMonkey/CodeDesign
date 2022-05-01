@@ -9,9 +9,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 微信公众号：bugstack虫洞栈 | 专注原创技术专题案例
- * 论坛：http://bugstack.cn
- * Create by 小傅哥 on @2020
+ * 决策节点配置
  */
 public class EngineConfig {
 

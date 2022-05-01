@@ -7,23 +7,50 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 微信公众号：bugstack虫洞栈 | 专注原创技术专题案例
- * 论坛：http://bugstack.cn
- * Create by 小傅哥 on @2020
+ * 抽象类  对接口的实现，提供最基本的通用方法
+ *
+ * 决策抽象类提供基础服务
  */
+
 public abstract class BaseLogic implements LogicFilter {
 
+    /**
+     *
+     * @param matterValue          决策值
+     * @param treeNodeLinkList
+     * @return
+     */
     @Override
     public Long filter(String matterValue, List<TreeNodeLink> treeNodeLinkList) {
         for (TreeNodeLink nodeLine : treeNodeLinkList) {
-            if (decisionLogic(matterValue, nodeLine)) return nodeLine.getNodeIdTo();
+            if (decisionLogic(matterValue, nodeLine)){
+                return nodeLine.getNodeIdTo();
+            }
         }
         return 0L;
     }
 
+    /**
+     * 定义该抽象方法，让每一个实现接口的类都必须按照规则提供决策值，这个决策值用于进行逻辑判断
+     *
+     * @param treeId
+     * @param userId
+     * @param decisionMatter 决策物料
+     * @return
+     */
     @Override
     public abstract String matterValue(Long treeId, String userId, Map<String, String> decisionMatter);
 
+    /**
+     *
+     * 决策罗晋
+     *
+     * 定义了基本的决策方法：1、2、3、4、5 表示  等于、大于、小于、小于等于、大于或等于
+     *
+     * @param matterValue
+     * @param nodeLink
+     * @return
+     */
     private boolean decisionLogic(String matterValue, TreeNodeLink nodeLink) {
         switch (nodeLink.getRuleLimitType()) {
             case 1:

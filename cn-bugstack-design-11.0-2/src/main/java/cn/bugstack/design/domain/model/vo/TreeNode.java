@@ -4,9 +4,8 @@ import java.util.List;
 
 /**
  * 规则树节点信息
- * 微信公众号：bugstack虫洞栈 | 专注原创技术专题案例
- * 论坛：http://bugstack.cn
- * Create by 小傅哥 on @2020
+ *
+ * 树节点：包括叶子节点、果实节点
  */
 public class TreeNode {
 
