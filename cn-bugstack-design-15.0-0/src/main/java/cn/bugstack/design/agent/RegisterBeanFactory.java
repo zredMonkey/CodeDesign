@@ -9,17 +9,22 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 
+/**
+ * 将Bean定义注册到Spring容器
+ */
 public class RegisterBeanFactory implements BeanDefinitionRegistryPostProcessor {
     
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
-        
+
+        // GenericBeanDefinition用于定义一个Bean对象的基本信息
         GenericBeanDefinition beanDefinition = new GenericBeanDefinition();
         beanDefinition.setBeanClass(MapperFactoryBean.class);
         beanDefinition.setScope("singleton");
         beanDefinition.getConstructorArgumentValues().addGenericArgumentValue(IUserDao.class);
 
         BeanDefinitionHolder definitionHolder = new BeanDefinitionHolder(beanDefinition, "userDao");
+        // 注册对象bean
         BeanDefinitionReaderUtils.registerBeanDefinition(definitionHolder, registry);
     }
 

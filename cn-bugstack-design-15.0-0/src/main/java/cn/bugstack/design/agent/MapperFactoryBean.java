@@ -7,6 +7,10 @@ import org.springframework.beans.factory.FactoryBean;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 
+/**
+ * 实现对代理类的定义
+ * @param <T>
+ */
 public class MapperFactoryBean<T> implements FactoryBean<T> {
 
     private Logger logger = LoggerFactory.getLogger(MapperFactoryBean.class);
@@ -17,6 +21,12 @@ public class MapperFactoryBean<T> implements FactoryBean<T> {
         this.mapperInterface = mapperInterface;
     }
 
+    /**
+     * 提供对类的代理
+     *
+     * @return
+     * @throws Exception
+     */
     @Override
     public T getObject() throws Exception {
         InvocationHandler handler = (proxy, method, args) -> {
