@@ -24,7 +24,12 @@ public class LoginSsoDecorator extends SsoDecorator {
     @Override
     public boolean preHandle(String request, String response, Object handler) {
         boolean success = super.preHandle(request, response, handler);
-        if (!success) return false;
+        if (!success) {
+            return false;
+        }
+
+        // 以下为增加的其他的信息判断--查询用户信息
+
         String userId = request.substring(8);
         String method = authMap.get(userId);
         logger.info("模拟单点登录方法访问拦截校验：{} {}", userId, method);
