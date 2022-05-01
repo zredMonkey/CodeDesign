@@ -8,6 +8,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 事件处理类
+ */
 public class EventManager {
 
     Map<Enum<EventType>, List<EventListener>> listeners = new HashMap<>();

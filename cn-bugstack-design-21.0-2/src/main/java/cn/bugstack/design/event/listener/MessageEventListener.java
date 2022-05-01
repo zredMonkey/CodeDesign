@@ -4,6 +4,9 @@ import cn.bugstack.design.LotteryResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 消息事件监听
+ */
 public class MessageEventListener implements EventListener {
 
     private Logger logger = LoggerFactory.getLogger(MessageEventListener.class);

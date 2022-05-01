@@ -4,6 +4,9 @@ import cn.bugstack.design.LotteryResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * MQ事件监听
+ */
 public class MQEventListener implements EventListener {
 
     private Logger logger = LoggerFactory.getLogger(MQEventListener.class);
