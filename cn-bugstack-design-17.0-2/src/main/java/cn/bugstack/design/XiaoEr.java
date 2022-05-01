@@ -8,10 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
- * 公众号：bugstack虫洞栈
- * Create by 小傅哥(fustack) @2020
- * <p>
+ *
  * 饭店小二，负责点单
  */
 public class XiaoEr {
@@ -20,10 +17,17 @@ public class XiaoEr {
 
     private List<ICuisine> cuisineList = new ArrayList<ICuisine>();
 
+    /**
+     * 点菜
+     * @param cuisine
+     */
     public void order(ICuisine cuisine) {
         cuisineList.add(cuisine);
     }
 
+    /**
+     * 下单
+     */
     public synchronized void placeOrder() {
         for (ICuisine cuisine : cuisineList) {
             cuisine.cook();
