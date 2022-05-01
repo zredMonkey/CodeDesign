@@ -20,7 +20,13 @@ public class LoginSsoDecorator extends SsoInterceptor {
         // 模拟校验
         boolean success = ticket.equals("success");
 
-        if (!success) return false;
+        // 以上部分和SsoInterceptor类中方法一样
+
+        // 以下为逻辑扩展服务
+
+        if (!success) {
+            return false;
+        }
 
         String userId = request.substring(8);
         String method = authMap.get(userId);
