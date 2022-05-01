@@ -1,5 +1,8 @@
 package cn.bugstack.design;
 
+/**
+ * 记录着类
+ */
 public class ConfigOriginator {
 
     private ConfigFile configFile;
