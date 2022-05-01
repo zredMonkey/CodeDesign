@@ -1,9 +1,6 @@
 package cn.bugstack.design;
 
 /**
- * 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
- * 公众号：bugstack虫洞栈
- * Create by 小傅哥(fustack) @2020
  * 优惠券折扣计算接口
  * <p>
  * 优惠券类型；
@@ -14,6 +11,14 @@ package cn.bugstack.design;
  */
 public class CouponDiscountService {
 
+    /**
+     *
+     * @param type           优惠券类型
+     * @param typeContent    优惠券金额
+     * @param skuPrice       商品金额
+     * @param typeExt        有些优惠券是满多少减多少，所以加了这个
+     * @return
+     */
     public double discountAmount(int type, double typeContent, double skuPrice, double typeExt) {
         // 1. 直减券
         if (1 == type) {

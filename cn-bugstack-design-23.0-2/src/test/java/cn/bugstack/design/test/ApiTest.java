@@ -14,9 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
- * 公众号：bugstack虫洞栈
- * Create by 小傅哥(fustack) @2020
+ *
  */
 public class ApiTest {
 
@@ -35,6 +33,7 @@ public class ApiTest {
         // 满100减10，商品100元
         Context<Map<String,String>> context = new Context<Map<String,String>>(new MJCouponDiscount());
         Map<String,String> mapReq = new HashMap<String, String>();
+        // 满x元减n元
         mapReq.put("x","100");
         mapReq.put("n","10");
         BigDecimal discountAmount = context.discountAmount(mapReq, new BigDecimal(100));

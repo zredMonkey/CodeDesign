@@ -3,9 +3,7 @@ package cn.bugstack.design;
 import java.math.BigDecimal;
 
 /**
- * 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
- * 公众号：bugstack虫洞栈
- * Create by 小傅哥(fustack) @2020
+ * 组合、折扣策略
  */
 public class Context<T> {
 
@@ -15,6 +13,12 @@ public class Context<T> {
         this.couponDiscount = couponDiscount;
     }
 
+    /**
+     * 计算优惠后的金额
+     * @param couponInfo   优惠策略
+     * @param skuPrice     SKU 金额
+     * @return
+     */
     public BigDecimal discountAmount(T couponInfo, BigDecimal skuPrice) {
         return couponDiscount.discountAmount(couponInfo, skuPrice);
     }
