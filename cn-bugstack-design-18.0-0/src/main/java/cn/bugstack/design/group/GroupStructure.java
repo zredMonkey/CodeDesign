@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * 组织结构
+ */
 public class GroupStructure implements Collection<Employee, Link> {
 
     private String groupId;                                                 // 组织ID，也是一个组织链的头部ID
